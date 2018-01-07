@@ -18,6 +18,7 @@ const loginApi = 'https://kyfw.12306.cn/passport/web/login';
     page.on('response', async resp => {
         if (resp.url === loginApi && resp.status === 200) {
             await page.goto(queryTicketPage);
+            await page.focus('#fromStationText');
             // await page.type('#fromStationText', '上海');
         }
     });
