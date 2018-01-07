@@ -1,0 +1,25 @@
+{
+  "name": "12306",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leyayun/12306.git"
+  },
+  "keywords": [
+    "12306"
+  ],
+  "author": "leyayun",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/leyayun/12306/issues"
+  },
+  "homepage": "https://github.com/leyayun/12306#readme",
+  "dependencies": {
+    "puppeteer": "^0.13.0"
+  }
+}
