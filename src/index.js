@@ -8,7 +8,7 @@ const loginApi = 'https://kyfw.12306.cn/passport/web/login';
 (async () => {
     const browser = await puppeteer.launch({
         devtools: true,
-        timeout: 5 * 60 * 1000, // 5 minute
+        timeout: 10 * 60 * 1000, // 5 minute
     });
 
     const pages = await browser.pages();
@@ -17,9 +17,12 @@ const loginApi = 'https://kyfw.12306.cn/passport/web/login';
 
     page.on('response', async resp => {
         if (resp.url === loginApi && resp.status === 200) {
-            await page.goto(queryTicketPage);
-            await page.focus('#fromStationText');
-            // await page.type('#fromStationText', '上海');
+            const result = await resp.json();
+            if(result.result_code === 0) {
+                await page.goto(queryTicketPage);
+                await page.focus('#fromStationText');
+                await page.type('#fromStationText', '上海');
+            }
         }
     });
 
